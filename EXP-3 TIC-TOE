@@ -1,0 +1,71 @@
+#Exp 3: Tic-Tac-Toe game 
+#AIM: To write a Program to implement the Tic-Tac-Toe game using Python. 
+#Input Graph : 
+#Algorithm 
+#Step 1: Initialize the Board 
+#• Create a 3x3 grid (list of lists) initialized with empty spaces (' '). 
+#Step 2: Define Functions 
+#1. Display the board: 
+#o Print the current state of the board. 
+#2. Check for a win: 
+#o Check all rows, columns, and diagonals to see if either player has won. 
+#3. Check for a draw: 
+#o If all cells are filled and there's no winner, declare a draw. 
+#4. Take player input: 
+#o Ask the user for a row and column number to place their mark (X or O). 
+#o Ensure the move is valid (cell is not already occupied). 
+#5. Switch turns: 
+#o Alternate between X and O after each turn. 
+#Step 3: Main Game Loop 
+#• Repeat until there is a winner or a draw. 
+#• Display the board after each move. 
+#• Declare the winner or a draw when the game ends. 
+#SOURCE CODE : 
+# Tuple to store winning positions. 
+win_positions = ( 
+(0, 1, 2), (3, 4, 5), (6, 7, 8), 
+(0, 3, 6), (1, 4, 7), (2, 5, 8), 
+(0, 4, 8), (2, 4, 6) 
+) 
+def game(player):
+# display current mesh 
+    print("\n", " | ".join(mesh[:3])) 
+    print("---+---+---") 
+    print("", " | ".join(mesh[3:6])) 
+    print("---+---+---") 
+    print("", " | ".join(mesh[6:])) 
+# Loop until player valid input cell number. 
+while True:
+    try:
+        ch = int(input(f"Enter player {player}'s choice : "))
+        if str(ch) not in mesh:
+            raise ValueError 
+        mesh[ch - 1] = player 
+        break 
+    except ValueError:
+        print("Invalid position number.") 
+# Return winning positions if player wins, else None. 
+for wp in win_positions:
+  if all(mesh[pos] == player for pos in wp): 
+      return wp 
+  return None 
+
+player1 = "X" 
+player2 = "O" 
+player = player1 
+mesh = list("123456789") 
+
+for i in range(9):
+    return wp  
+if won:
+    print("\n", " | ".join(mesh[:3])) 
+    print("---+---+---") 
+    print("", " | ".join(mesh[3:6])) 
+    print("---+---+---") 
+    print("", " | ".join(mesh[6:])) 
+    print(f"*** Player {player} won! ***") 
+    break
+    player = player1 if player == player2 else player2
+else:
+    # 9 moves without a win is a draw. 
+    print("Game ends in a draw.")

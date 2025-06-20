@@ -1,0 +1,48 @@
+#Exp2: Depth First Search (DFS) 
+#AIM: To write a Program to implement Depth First Search (DFS) using Python. 
+#Input Graph 
+#Algorithm for DFS 
+#1. Initialize an empty set visited and a stack. 
+#2. Push the starting node to the stack. 
+#3. While the stack is not empty: 
+#o Pop a node from the stack. 
+#o If the node is not visited: 
+#▪ Mark it as visited. 
+#▪ Process the node. 
+#▪ Push all unvisited neighbors onto the stack. 
+#4. Repeat until all nodes are visited. 
+#SOURCE CODE : 
+# Input Graph 
+graph = { 
+'A' : ['B','C'], 
+'B' : ['A','C','D'], 
+'C' : ['A','B','E'], 
+'D' : ['B','E'], 
+'E' : ['C','D'] 
+} 
+# Set used to store visited nodes. 
+visitedNodes = list() 
+# function 
+def dfs(visitedNodes, graph, node):
+    if node not in visitedNodes:
+        print (node,end=" ") 
+        visitedNodes.append(node) 
+        for neighbour in graph[node]:
+            dfs(visitedNodes, graph, neighbour) 
+ 
+# Driver Code 
+snode = input("Enter Starting Node(A, B, C, D, or E) :").upper()
+# calling bfs function 
+print("RESULT :") 
+print("-"*20) 
+dfs(visitedNodes, graph, snode)
+
+#OUTPUT : 
+#Sample Output 1: 
+#Enter Starting Node(A, B, C, D, or E) :A 
+#RESULT : 
+#A B C E D 
+#Sample Output 2: 
+#Enter Starting Node(A, B, C, D, or E) :B 
+#RESULT : 
+#B A C E D 
